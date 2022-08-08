@@ -3,7 +3,7 @@ module Client (doClient) where
 import Util.Checkers (checkForQuit, checkForEscape)
 import Util.Requests (makeEntry, getEntries, getEntriesPassword)
 import Control.Monad ( unless, when )
-import System.IO (BufferMode(NoBuffering), hSetBuffering, stdout)
+-- import System.IO (BufferMode(NoBuffering), hSetBuffering, stdout)
 
 doClient :: String -> IO ()
 doClient = clientMenu

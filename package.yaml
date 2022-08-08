@@ -1,10 +1,10 @@
 name:                net-notetaker
 version:             0.1.0.0
-github:              "githubuser/net-notetaker"
+github:              "avigloz/net-notetaker"
 license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2022 Author name here"
+author:              "Avi Glozman"
+maintainer:          "avi@avigloz.net"
+copyright:           "2022 Avi Glozman"
 
 extra-source-files:
 - README.md
@@ -21,6 +21,8 @@ description:         Please see the README on GitHub at <https://github.com/gith
 
 dependencies:
 - base >= 4.7 && < 5
+- bytestring
+- http-conduit
 
 library:
   source-dirs: src
@@ -28,7 +30,7 @@ library:
 executables:
   net-notetaker-exe:
     main:                Main.hs
-    source-dirs:         app
+    source-dirs:         src
     ghc-options:
     - -threaded
     - -rtsopts
