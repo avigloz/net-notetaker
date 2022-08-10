@@ -26,6 +26,7 @@ source-repository head
 library
   exposed-modules:
       Client
+      Handlers.Home
       Main
       Server
       Util.Checkers
@@ -35,15 +36,18 @@ library
   hs-source-dirs:
       src
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
     , bytestring
     , http-conduit
+    , yesod
   default-language: Haskell2010
 
 executable net-notetaker-exe
   main-is: Main.hs
   other-modules:
       Client
+      Handlers.Home
       Server
       Util.Checkers
       Util.Requests
@@ -52,10 +56,12 @@ executable net-notetaker-exe
       src
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
     , bytestring
     , http-conduit
     , net-notetaker
+    , yesod
   default-language: Haskell2010
 
 test-suite net-notetaker-test
@@ -67,8 +73,10 @@ test-suite net-notetaker-test
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
     , bytestring
     , http-conduit
     , net-notetaker
+    , yesod
   default-language: Haskell2010
