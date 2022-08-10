@@ -8,7 +8,6 @@ copyright:           "2022 Avi Glozman"
 
 extra-source-files:
 - README.md
-- ChangeLog.md
 
 # Metadata used when publishing your package
 # synopsis:            Short description of your package
@@ -25,6 +24,7 @@ dependencies:
 - http-conduit
 - yesod
 - aeson
+- text
 
 library:
   source-dirs: src

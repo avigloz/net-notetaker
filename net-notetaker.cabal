@@ -17,7 +17,6 @@ license-file:   LICENSE
 build-type:     Simple
 extra-source-files:
     README.md
-    ChangeLog.md
 
 source-repository head
   type: git
@@ -26,7 +25,9 @@ source-repository head
 library
   exposed-modules:
       Client
+      Handlers.File
       Handlers.Home
+      Handlers.Lib.Types
       Main
       Server
       Util.Checkers
@@ -40,6 +41,7 @@ library
     , base >=4.7 && <5
     , bytestring
     , http-conduit
+    , text
     , yesod
   default-language: Haskell2010
 
@@ -47,7 +49,9 @@ executable net-notetaker-exe
   main-is: Main.hs
   other-modules:
       Client
+      Handlers.File
       Handlers.Home
+      Handlers.Lib.Types
       Server
       Util.Checkers
       Util.Requests
@@ -61,6 +65,7 @@ executable net-notetaker-exe
     , bytestring
     , http-conduit
     , net-notetaker
+    , text
     , yesod
   default-language: Haskell2010
 
@@ -78,5 +83,6 @@ test-suite net-notetaker-test
     , bytestring
     , http-conduit
     , net-notetaker
+    , text
     , yesod
   default-language: Haskell2010
