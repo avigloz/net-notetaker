@@ -24,7 +24,6 @@ getHomeR = return $ getHome
 getReadFileR f = return $ getReadFile f 
 -- postWriteFileR = return $ postWriteFile
 
--- very basic function, meat is above
 doServer :: IO ()
 doServer = do
     warp 1234 NNServer

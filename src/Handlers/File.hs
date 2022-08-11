@@ -3,13 +3,17 @@
 {-# LANGUAGE QuasiQuotes          #-}
 {-# LANGUAGE TemplateHaskell      #-}
 {-# LANGUAGE TypeFamilies         #-}
-
 module Handlers.File(getReadFile, postWriteFile) where
+
+import Handlers.Lib.Types (Filename, FileContents)
 import Data.Aeson
-import Handlers.Lib.Types
-
+import System.IO.Unsafe (unsafePerformIO)
 import qualified Data.Text as T
+import qualified Data.Text.IO as T.IO
 
--- TODO: actually do file reading
-getReadFile f = object [ "file-name" .= f]
+getReadFile :: Filename -> Value
+getReadFile f = object [ "file-name" .= (f :: Filename)
+                        , "contents" .= (fc :: FileContents) ] 
+                        where
+                            fc = T.unpack $ unsafePerformIO $ T.IO.readFile $ "./" ++ show f
 postWriteFile = undefined
