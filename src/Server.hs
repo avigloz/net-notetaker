@@ -21,7 +21,9 @@ mkYesod "NNServer" [parseRoutes|
 instance Yesod NNServer
 
 getHomeR = return $ getHome
-getReadFileR f = return $ getReadFile f 
+getReadFileR f = do
+    contents <- liftIO $ getReadFile f
+    pure contents
 -- postWriteFileR = return $ postWriteFile
 
 doServer :: IO ()
